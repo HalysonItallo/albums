@@ -7,6 +7,6 @@ class GetAllAlbumsImp implements GetAllAlbumsUseCase {
 
   @override
   Future<dynamic> call() async {
-    return _albumRepository.getAllAlbums();
+    return await _albumRepository.getAllAlbums();
   }
 }

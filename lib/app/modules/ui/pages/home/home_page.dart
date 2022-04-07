@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
             } else if (state is AlbumLoadingState) {
               return const AlbumLoadingView();
             } else {
-              return const AlbumSucessView();
+              List data = (state as AlbumSucessState).data['data'];
+              return AlbumSucessView(data: data);
             }
           },
         ),
