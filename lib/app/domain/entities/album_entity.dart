@@ -1,16 +1,11 @@
-// To parse this JSON data, do
-//
-//     final album = albumFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-Album albumFromJson(String str) => Album.fromJson(json.decode(str));
+AlbumEntity albumFromJson(String str) => AlbumEntity.fromJson(json.decode(str));
 
-String albumToJson(Album data) => json.encode(data.toJson());
+String albumToJson(AlbumEntity data) => json.encode(data.toJson());
 
-class Album {
-  Album({
+class AlbumEntity {
+  AlbumEntity({
     required this.userId,
     required this.id,
     required this.title,
@@ -20,7 +15,7 @@ class Album {
   final int id;
   final String title;
 
-  factory Album.fromJson(Map<String, dynamic> json) => Album(
+  factory AlbumEntity.fromJson(Map<String, dynamic> json) => AlbumEntity(
         userId: json["userId"],
         id: json["id"],
         title: json["title"],
