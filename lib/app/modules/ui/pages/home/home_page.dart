@@ -18,6 +18,12 @@ class _HomePageState extends State<HomePage> {
   final AlbumCubit _albumCubit = GetIt.I.get<AlbumCubit>();
 
   @override
+  void initState() {
+    _albumCubit.getAllAlbums();
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _albumCubit.close();
     super.dispose();
@@ -29,13 +35,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: const Text("Home")),
       body: Center(
         child: BlocBuilder<AlbumCubit, AlbumState>(
-          builder: (context, state) {
+          bloc: _albumCubit,
+          builder: (BuildContext context, AlbumState state) {
             if (state is AlbumFailureState) {
               return const AlbumFailureView();
             } else if (state is AlbumLoadingState) {
               return const AlbumLoadingView();
             } else {
-              List data = (state as AlbumSucessState).data['data'];
+              dynamic data = (state as AlbumSucessState).data["posts"]["data"];
+
               return AlbumSucessView(data: data);
             }
           },

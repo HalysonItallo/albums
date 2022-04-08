@@ -4,7 +4,7 @@ class GraphQLService {
   late GraphQLClient _client;
 
   GraphQLService() {
-    HttpLink link = HttpLink('https://rickandmortyapi.com/graphql/');
+    HttpLink link = HttpLink('https://graphqlzero.almansi.me/api');
 
     _client = GraphQLClient(link: link, cache: GraphQLCache());
   }
@@ -27,8 +27,6 @@ class GraphQLService {
     );
 
     final result = await _client.mutate(options);
-
-    print(result);
 
     return result;
   }

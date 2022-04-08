@@ -9,11 +9,10 @@ part 'album_state.dart';
 class AlbumCubit extends Cubit<AlbumState> {
   final GetAllAlbumsUseCase _getAllAlbums = GetIt.I.get<GetAllAlbumsImp>();
 
-  String stateQuery = "failure";
   AlbumCubit() : super(AlbumLoadingState());
 
-  Future<void> getAllAlbums() async {
-    var result = await _getAllAlbums.call();
+  void getAllAlbums() async {
+    final result = await _getAllAlbums();
 
     try {
       if (result.hasException) {

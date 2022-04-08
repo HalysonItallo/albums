@@ -10,11 +10,10 @@ class AlbumSucessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data);
     return ListView.builder(
-      itemCount: 3,
+      itemCount: data.length,
       itemBuilder: (BuildContext context, int index) {
-        return Text("Olá ");
+        return Text(data[index]["title"]);
       },
     );
   }
