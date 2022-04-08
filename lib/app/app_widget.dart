@@ -1,8 +1,10 @@
+import 'package:albums/app/data/datasource/local/db/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  final AppDatabase db;
+  const AppWidget({Key? key, required this.db}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
